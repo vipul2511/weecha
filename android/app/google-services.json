@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "541184542830",
+    "project_id": "weecha-1e266",
+    "storage_bucket": "weecha-1e266.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541184542830:android:fe2fa2f418b771f8f43e7f",
+        "android_client_info": {
+          "package_name": "com.weecha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541184542830-c65tnvgkc6mvgb2dk8ju4hr3u0f1rggc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weecha",
+            "certificate_hash": "0f603e95f316ca97ea2c047c33b4d93952ef76ec"
+          }
+        },
+        {
+          "client_id": "541184542830-n0bsnvgu9ipijbndpb0ljr63gnekmfbm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weecha",
+            "certificate_hash": "31b9a32d541f4092ea4499f7f6a4b07822085017"
+          }
+        },
+        {
+          "client_id": "541184542830-87aouhtnn7rgubdvk8nd4m39v57ba4ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXM1D0lzqi4xK1Kci-gCA9anw943DNZQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541184542830-87aouhtnn7rgubdvk8nd4m39v57ba4ro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
