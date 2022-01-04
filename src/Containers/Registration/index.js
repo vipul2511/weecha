@@ -43,7 +43,7 @@ const LoginPhone=(props)=>{
       RNTwitterSignIn.logIn()
         .then(loginData => {
           console.log('twitter data',loginData)
-          props.navigation.navigate('Home')
+          props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
           const { authToken, authTokenSecret } = loginData
           if (authToken && authTokenSecret) {
             setisLoggedIn(true)
@@ -83,7 +83,8 @@ const LoginPhone=(props)=>{
           const _getCurrentUserInfo = async () => {
             try {
               let info = await GoogleSignin.signInSilently();
-              props.navigation.navigate('Home')
+              // props.navigation.navigate('MainTabNavigation',{screen: 'Home'})
+              props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
               console.log('User Info --> ', info);
               
               setUserInfo(info);
@@ -101,7 +102,7 @@ const LoginPhone=(props)=>{
             onFacebookLogin()
                 .then(async (data, token) => {
                 // console.log('data of facebook',data);
-          props.navigation.navigate('Home')
+                props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
                 })
                 .catch((err) => {
                     console.log("err onPressLogin", err);
@@ -117,7 +118,7 @@ const LoginPhone=(props)=>{
               });
               const userInfo = await GoogleSignin.signIn();
               console.log('User Info --> ', userInfo);
-              props.navigation.navigate('Home')
+              props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
               setUserInfo(userInfo);
             } catch (error) {
               console.log('Message', JSON.stringify(error));
@@ -137,7 +138,7 @@ const LoginPhone=(props)=>{
     useEffect(()=>{
      console.log('props  home',props.userLoginList);
      if(props.userLoginList){
-        props.navigation.navigate('Home')
+      props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
      }
 
     //  

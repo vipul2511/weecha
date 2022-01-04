@@ -102,6 +102,14 @@
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
+		<string>Gilroy-Bold.ttf</string>
+		<string>Gilroy-Heavy.ttf</string>
+		<string>Gilroy-Light.ttf</string>
+		<string>Gilroy-Medium.ttf</string>
+		<string>Gilroy-Regular.ttf</string>
+		<string>Mulish-Regular.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>SFPRODISPLAYREGULAR.OTF</string>
 	</array>
 </dict>
 </plist>

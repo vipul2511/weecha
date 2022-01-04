@@ -63,6 +63,14 @@
 		32F1C11F4CED4C45A7FE34F3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD1668F8F70A4B1080738A44 /* Roboto-Regular.ttf */; };
 		7AB8F5D7150A4105ADBD97DA /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 944880E5E6AB421AB284F8E0 /* Roboto-Thin.ttf */; };
 		89E0EA17F5EE4126AE2C6EF1 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07DC9F3CF95C49E59B984106 /* Roboto-ThinItalic.ttf */; };
+		B0B6F97EB47C445AB6D03768 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8F43A5AF2D34C28B984A55C /* Gilroy-Bold.ttf */; };
+		F80867453A7440CFB37E2207 /* Gilroy-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57BD51FB41D74A678B5E5FBD /* Gilroy-Heavy.ttf */; };
+		5364E82979364A639C68905C /* Gilroy-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82ACF8121CB34B3087FA5BD4 /* Gilroy-Light.ttf */; };
+		5D51DD34AEEB4AE5A0090BF3 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9A9A8BFDFB04CCE8636E798 /* Gilroy-Medium.ttf */; };
+		A9F0C3AE81844AEA899D1AA6 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A83F41568F964B4797BADAB3 /* Gilroy-Regular.ttf */; };
+		32AE71F06FFA45BAA701E0F0 /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */; };
+		2E25196631124DF890F14BA9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */; };
+		CF0AC15C6BC84CC4B571ABD3 /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +150,14 @@
 		AD1668F8F70A4B1080738A44 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		944880E5E6AB421AB284F8E0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		07DC9F3CF95C49E59B984106 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F8F43A5AF2D34C28B984A55C /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; name = "Gilroy-Bold.ttf"; path = "../assets/fonts/Gilroy-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		57BD51FB41D74A678B5E5FBD /* Gilroy-Heavy.ttf */ = {isa = PBXFileReference; name = "Gilroy-Heavy.ttf"; path = "../assets/fonts/Gilroy-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		82ACF8121CB34B3087FA5BD4 /* Gilroy-Light.ttf */ = {isa = PBXFileReference; name = "Gilroy-Light.ttf"; path = "../assets/fonts/Gilroy-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D9A9A8BFDFB04CCE8636E798 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; name = "Gilroy-Medium.ttf"; path = "../assets/fonts/Gilroy-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A83F41568F964B4797BADAB3 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; name = "Gilroy-Regular.ttf"; path = "../assets/fonts/Gilroy-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */ = {isa = PBXFileReference; name = "Mulish-Regular.ttf"; path = "../assets/fonts/Mulish-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYREGULAR.OTF"; path = "../assets/fonts/SFPRODISPLAYREGULAR.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +316,14 @@
 				AD1668F8F70A4B1080738A44 /* Roboto-Regular.ttf */,
 				944880E5E6AB421AB284F8E0 /* Roboto-Thin.ttf */,
 				07DC9F3CF95C49E59B984106 /* Roboto-ThinItalic.ttf */,
+				F8F43A5AF2D34C28B984A55C /* Gilroy-Bold.ttf */,
+				57BD51FB41D74A678B5E5FBD /* Gilroy-Heavy.ttf */,
+				82ACF8121CB34B3087FA5BD4 /* Gilroy-Light.ttf */,
+				D9A9A8BFDFB04CCE8636E798 /* Gilroy-Medium.ttf */,
+				A83F41568F964B4797BADAB3 /* Gilroy-Regular.ttf */,
+				157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */,
+				2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */,
+				186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -450,6 +474,14 @@
 				32F1C11F4CED4C45A7FE34F3 /* Roboto-Regular.ttf in Resources */,
 				7AB8F5D7150A4105ADBD97DA /* Roboto-Thin.ttf in Resources */,
 				89E0EA17F5EE4126AE2C6EF1 /* Roboto-ThinItalic.ttf in Resources */,
+				B0B6F97EB47C445AB6D03768 /* Gilroy-Bold.ttf in Resources */,
+				F80867453A7440CFB37E2207 /* Gilroy-Heavy.ttf in Resources */,
+				5364E82979364A639C68905C /* Gilroy-Light.ttf in Resources */,
+				5D51DD34AEEB4AE5A0090BF3 /* Gilroy-Medium.ttf in Resources */,
+				A9F0C3AE81844AEA899D1AA6 /* Gilroy-Regular.ttf in Resources */,
+				32AE71F06FFA45BAA701E0F0 /* Mulish-Regular.ttf in Resources */,
+				2E25196631124DF890F14BA9 /* Lato-Regular.ttf in Resources */,
+				CF0AC15C6BC84CC4B571ABD3 /* SFPRODISPLAYREGULAR.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

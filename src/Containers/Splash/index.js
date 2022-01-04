@@ -10,7 +10,8 @@ const SplashScreen = ({ navigation }) => {
          const asynData=  await AsyncStorage.getItem('@is_login');
            console.log('await',asynData);
            if(asynData){
-            navigation.navigate('Home');
+            // navigation.navigate('MainTabNavigation', {screen: 'Home'});
+            navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
            }else{
         navigation.navigate('Language');
            }
@@ -24,7 +25,7 @@ const SplashScreen = ({ navigation }) => {
 
   return (
     <LinearGradient start={{x: 0, y: 0}} end={{x: 1.4, y: 0}} colors={['#0A13E4', '#D833F3']} style={styles.Container}>
-      <StatusBar backgroundColor="#0A13E4" barStyle="light-content" />
+      <StatusBar translucent={true} backgroundColor="blue"/>
       <View style={styles.image}>
         <Image source={require('../../Assets/Images/Weecha-Logo.png')} style={[styles.logo,{resizeMode:"contain"}]} />
       </View>
