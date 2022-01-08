@@ -15,6 +15,7 @@ import Chat from '../Containers/Chat'
 import Home from "../Containers/Home";
 import TabNav from './TabNav';
 import VideoCall from '../Containers/VideoCall';
+import AudioCall from '../Containers/AudioCall';
 const Stack = createStackNavigator();
 
 function AppStack() {
@@ -86,6 +87,16 @@ function AppStack() {
        <Stack.Screen
           name="VideoCall"
           component={VideoCall}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AudioCall"
+          component={AudioCall}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
           options={{headerShown: false}}
         />
        

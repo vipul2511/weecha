@@ -19,6 +19,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Modal from "react-native-modal";
 import All from '../Containers/Discover/All'
+import MyProfile from '../Containers/MyProfile';
 
 const Tab = createBottomTabNavigator();
 const DiscoverTab = createMaterialTopTabNavigator();
@@ -28,7 +29,7 @@ function BottomTabBar(props) {
     console.log(props)
     return (
         <View style={{flexDirection: 'row', width: wp('90%'), backgroundColor: 'white', 
-        alignSelf: 'center', paddingVertical: '4%', borderRadius: wp('8%'), position: 'absolute', bottom: '3%', alignItems: 'center',
+        alignSelf: 'center', paddingVertical: hp('2%'), borderRadius: wp('8%'), position: 'absolute', bottom: hp('3%'), alignItems: 'center',
         justifyContent: 'space-evenly', elevation: 4, zIndex: 99}}>
         {props.state.routes.map((item, index) => {
             return (
@@ -41,7 +42,7 @@ function BottomTabBar(props) {
               >
                 <View style={{alignItems: 'center'}}>
                     {item.name === "Home"?
-                    <HomeIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 2?"#F32965":"#A3A8B4"} />:item.name === "EditProfile"? 
+                    <HomeIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 2?"#F32965":"#A3A8B4"} />:item.name === "Profile"? 
                     <ProfileIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 4?"#F32965":"#A3A8B4"} />:item.name === "Discover"?
                     <LiveIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 0?"#F32965":"#A3A8B4"} />:item.name === "PartyRooms"?
                     <PartyRoomsIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 3?"#F32965":"#A3A8B4"} />:<UnionIcon width={wp("6%")} height={wp("6%")} fill={props.state.index === 1?"#F32965":"#A3A8B4"} />
@@ -204,7 +205,7 @@ const TabNav = () => {
             <Tab.Screen name={"Online"} component={DummyPage} />
             <Tab.Screen name={"Home"} component={Home} />
             <Tab.Screen name={"PartyRooms"} component={DummyPage} />
-            <Tab.Screen name={"EditProfile"} component={DummyPage} />
+            <Tab.Screen name={"Profile"} component={MyProfile} />
             
         </Tab.Navigator>
     )

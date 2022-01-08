@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, ImageBackground, StatusBar, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import VideoCall from '../../Assets/Icons/VideoCall.svg'
-import AudioCall from '../../Assets/Icons/AudioCall.svg'
-import TextMessage from '../../Assets/Icons/TextMessage.svg'
+import VideoCall from '../../Assets/Icons/VideoCallNew.svg'
+import AudioCall from '../../Assets/Icons/AudioCallNew.svg'
+import TextMessage from '../../Assets/Icons/MessageNew.svg'
 import Diamonds from '../../Assets/Icons/diamonds.svg'
 import Country from '../../Assets/Icons/india.svg'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
@@ -30,16 +30,17 @@ const ProfileView = (props) => {
                 <View style={{position: 'absolute', height: '15%', width: '100%', bottom: 0, backgroundColor: 'white', 
                 // borderTopLeftRadius: hp('20%'),        borderTopRightRadius: hp('20%')
             }} >
-                <View style={{position: 'absolute', top: '-50%', transform: [{translateY: -10}], height: 70, flexDirection: 'row', alignItems: 'center', width: '60%', alignSelf: 'center', 
+                <View style={{position: 'absolute', top: '-50%', transform: [{translateY: -10}], height: 70, flexDirection: 'row', alignItems: 'center', width: '70%', alignSelf: 'center', 
                     justifyContent: 'space-around' }}>
-                    <TouchableOpacity onPress={() => props.navigation.navigate('VideoCall')}>
-                    <Image source={require('../../Assets/Icons/VideoCall.png')} style={{width: wp('15%'), height: wp('15%')}} />
+                    
+                    <TouchableOpacity onPress={() => props.navigation.navigate('AudioCall')}>
+                   <AudioCall />{/* <Image source={require('../../Assets/Icons/Call_1.png')} style={{width: wp('22%'), height: wp('22%')}} /> */}
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                    <Image source={require('../../Assets/Icons/Call_1.png')} style={{width: wp('22%'), height: wp('22%')}} />
+                    <TouchableOpacity onPress={() => props.navigation.navigate('VideoCall')}>
+                   <VideoCall />{/* <Image source={require('../../Assets/Icons/VideoCall.png')} style={{width: wp('15%'), height: wp('15%')}} /> */}
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => props.navigation.navigate('Chat')}>
-                    <Image source={require('../../Assets/Icons/Message.png')} style={{width: wp('15%'), height: wp('15%')}} />
+                   <TextMessage />{/* <Image source={require('../../Assets/Icons/Message.png')} style={{width: wp('15%'), height: wp('15%')}} /> */}
                     </TouchableOpacity>
                 </View>
                 </View>

@@ -71,6 +71,7 @@
 		32AE71F06FFA45BAA701E0F0 /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */; };
 		2E25196631124DF890F14BA9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */; };
 		CF0AC15C6BC84CC4B571ABD3 /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */; };
+		77D5669E56F9465BAA4CECAA /* Gilroy-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9342863DE42B4FD3AC65C5BA /* Gilroy-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */ = {isa = PBXFileReference; name = "Mulish-Regular.ttf"; path = "../assets/fonts/Mulish-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYREGULAR.OTF"; path = "../assets/fonts/SFPRODISPLAYREGULAR.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9342863DE42B4FD3AC65C5BA /* Gilroy-Semibold.ttf */ = {isa = PBXFileReference; name = "Gilroy-Semibold.ttf"; path = "../assets/fonts/Gilroy-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				157586A5BAFD4E959FE62E9D /* Mulish-Regular.ttf */,
 				2EF3D4291EAB4199A79D623E /* Lato-Regular.ttf */,
 				186487715469474095E100E1 /* SFPRODISPLAYREGULAR.OTF */,
+				9342863DE42B4FD3AC65C5BA /* Gilroy-Semibold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				32AE71F06FFA45BAA701E0F0 /* Mulish-Regular.ttf in Resources */,
 				2E25196631124DF890F14BA9 /* Lato-Regular.ttf in Resources */,
 				CF0AC15C6BC84CC4B571ABD3 /* SFPRODISPLAYREGULAR.OTF in Resources */,
+				77D5669E56F9465BAA4CECAA /* Gilroy-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

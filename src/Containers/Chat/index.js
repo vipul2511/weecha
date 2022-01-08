@@ -11,16 +11,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const messages = [
     {id: 1, type: 'sent', body: {text: 'Hi', image: require('../../Assets/Images/photo.png'), video: '', file: ''}, createdAt: '2021-07-10T04:50:00.000Z', read: 'true'},
-    {id: 2, type: 'received', body: {text: 'Hi', image: '', video: 'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4', file: ''}, createdAt: '2021-07-10T04:50:00.000Z', read: 'true'},
+    {id: 2, type: 'received', body: {text: 'Hi', image: '', video: 'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4', file: ''}, createdAt: '2021-07-10T04:50:00.000Z'},
     {id: 3, type: 'received', body: {text: 'Hi', image: '', video: '', file: ''}, createdAt: '2021-07-10T04:50:00.000Z' } ,
     {id: 4, type: 'sent', body: {text: 'Hello, this is me', image: '', video: '', file: ''}, createdAt: '2021-07-10T04:50:00.000Z' },
     {id: 5, type: 'received', body: {text: 'Hi', image: '', video: '', file: ''}, createdAt: '2021-07-10T04:50:00.000Z' } ,
     {id: 6, type: 'sent', body: {text: 'Hello, this is me', image: '', video: '', file: ''}, createdAt: '2021-07-10T04:50:00.000Z' }    
 ]
 const Chat = (props) => {
-    useEffect(() => {
-       
-    })
+    
     return (
         <View style={{flex: 1}}>
              <View style={{flexDirection: 'row', height: 70, alignItems: 'center', backgroundColor: 'white'}}>
@@ -36,7 +34,7 @@ const Chat = (props) => {
         // style={{ backgroundColor: '#4c69a5' }}
         resetScrollToCoords={{ x: 0, y: 0 }}
         scrollEnabled={false}
-         contentContainerStyle={{height: hp('100%') - 70,}}
+         contentContainerStyle={{height: hp('100%') - 70, flex: 1}}
       >
          <StatusBar translucent={true} backgroundColor={"white"}/>
             <FlatList
