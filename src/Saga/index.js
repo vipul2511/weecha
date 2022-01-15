@@ -8,7 +8,11 @@ import {
   sentOtp,
   userLogin,
   userRegistration,
-  updateUserProfile
+  updateUserProfile,
+  getUserProfile,
+  getUserGallary,
+  getUserVideo,
+  getUserFilter
 } from './CommonSaga';
 export default function* root() {
   yield all([
@@ -17,6 +21,13 @@ export default function* root() {
     takeLatest(CommonTypes.USER_LOGIN,userLogin),
     takeLatest(CommonTypes.USER_REGISTRATION,userRegistration),
     takeLatest(CommonTypes.UPDATE_USER_PROFILE,updateUserProfile),
+    takeLatest(CommonTypes.GET_USER_PROFILE,getUserProfile),
+    takeLatest(CommonTypes.GET_USER_GALLARY,getUserGallary),
+    takeLatest(CommonTypes.GET_USER_VIDEO,getUserVideo),
+    takeLatest(CommonTypes.GET_USER_FILTER,getUserFilter),
+
+
+
 
 
   ])

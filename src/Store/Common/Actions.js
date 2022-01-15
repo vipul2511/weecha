@@ -46,7 +46,34 @@ const { Types, Creators } = createActions({
   updateUserProfileSuccess: ['payload'],
   updateUserProfileFailure: [null],
 
-  clearOtp:null
+  getUserProfile: ['payload'],
+  getUserProfileLoading: [null],
+  getUserProfileSuccess: ['payload'],
+  getUserProfileFailure: [null],
+
+
+  getUserGallary: ['payload'],
+  getUserGallaryLoading: [null],
+  getUserGallarySuccess: ['payload'],
+  getUserGallaryFailure: [null],
+
+
+  getUserVideo: ['payload'],
+  getUserVideoLoading: [null],
+  getUserVideoSuccess: ['payload'],
+  getUserVideoFailure: [null],
+
+
+
+  getUserFilter: ['payload'],
+  getUserFilterLoading: [null],
+  getUserFilterSuccess: ['payload'],
+  getUserFilterFailure: [null],
+
+
+  clearOtp: null,
+  
+  clearUpdateProfile:null,
 
   
 
