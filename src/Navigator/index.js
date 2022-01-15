@@ -14,7 +14,7 @@ import ViewProfile from '../Containers/ViewProfile'
 import Chat from '../Containers/Chat'
 import Home from "../Containers/Home";
 import TabNav from './TabNav';
-import VideoCall from '../Containers/VideoCall';
+import VideoCall from '../Containers/VideoCall/index.tsx';
 import AudioCall from '../Containers/AudioCall';
 const Stack = createStackNavigator();
 
