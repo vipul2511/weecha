@@ -19,31 +19,12 @@ const Message = (props) => {
         .catch(e => console.log(e))
        }
     }, [props.item])
-const renderDate = () => {
-    if(props.index != props.messages.length-1){
-        if(moment(props.messages[props.index].createdAt).format("DD/MM/YYYY") == moment(props.messages[props.index+1].createdAt).format("DD/MM/YYYY"))
-        return <Text></Text>
-    }
-        return (
-            <View style={[{alignSelf:'center', width: '100%', marginBottom: 10}, props.index == props?.messages.length-1?{marginTop: 10}:{}]}>
-            <Text style={{fontFamily: 'Mulish-Regular', fontSize: 12, color: 'rgba(0,0,0, 0.4)',textAlign:'center', width: '100%'}}>{moment(props.messages[props.index].createdAt).calendar(null, {
-    sameDay: '[Today]',
-    nextDay: '[Tomorrow]',
-    nextWeek: 'dddd',
-    lastDay: '[Yesterday]',
-    lastWeek: '[Last] dddd',
-    sameElse: 'DD/MM/YYYY'
-})}</Text>
-            </View>
-            )
-    
-}
+
     console.log(props.item, "ITEM")
     return (
-        <View style={[{width: '100%', paddingHorizontal:10, paddingBottom: 10 }, props.userId===props?.item.sentBy?{alignItems: 'flex-end'}:{alignItems: 'flex-start'}]}>
-            {renderDate()}
+        <View style={[{width: '100%', padding: 10}, props.item.type==='sent'?{alignItems: 'flex-end'}:{alignItems: 'flex-start'}]}>
             <View style={[{maxWidth: wp('70%'), padding: wp('3%'), 
-            }, props.userId===props?.item.sentBy?{borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomLeftRadius: wp('5%'), backgroundColor: 'rgba(0, 45, 227, 1)'}:{
+            }, props.item.type==='sent'?{borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomLeftRadius: wp('5%'), backgroundColor: 'rgba(0, 45, 227, 1)'}:{
                 borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomRightRadius: wp('5%'), backgroundColor: 'white'
             }]}>
                 {props.item.body.image.toString().length> 0 && 
@@ -62,10 +43,10 @@ const renderDate = () => {
                         />
                     </ImageBackground>
                 </TouchableOpacity>}
-                {props.item.body.text.length> 0 && <Text style={[{ fontFamily: 'Mulish-Regular', fontSize: 14}, props.userId===props?.item.sentBy?{color:'white'}:{color:'rgba(15, 24, 40, 1)'}]}>{props.item.body.text}</Text>}
-                <View style={[{flexDirection: 'row', alignItems: 'center', marginTop: hp('0.8%')}, props.userId===props?.item.sentBy?{alignSelf: 'flex-end',}:{alignSelf: 'flex-start',}]}>
-                <Text style={[{ fontFamily: 'Lato-Regular', fontSize: 10}, props.userId===props?.item.sentBy?{color:'white'}:{color:'rgba(173, 181, 189, 1)'}]}>{moment(props.item.createdAt).format('hh:mm')}</Text>
-                {props.item?.read && props.item.sentBy===props.userId?<><View style={{height: 2, width: 2, backgroundColor: 'white', borderRadius: 100, marginHorizontal: 2}} />
+                {props.item.body.text.length> 0 && <Text style={[{ fontFamily: 'Mulish-Regular', fontSize: 14}, props.item.type==='sent'?{color:'white'}:{color:'rgba(15, 24, 40, 1)'}]}>{props.item.body.text}</Text>}
+                <View style={[{flexDirection: 'row', alignItems: 'center', marginTop: hp('0.8%')}, props.item.type==='sent'?{alignSelf: 'flex-end',}:{alignSelf: 'flex-start',}]}>
+                <Text style={[{ fontFamily: 'Lato-Regular', fontSize: 10}, props.item.type==='sent'?{color:'white'}:{color:'rgba(173, 181, 189, 1)'}]}>{moment(props.item.createdAt).format('hh:mm')}</Text>
+                {props.item?.read?<><View style={{height: 2, width: 2, backgroundColor: 'white', borderRadius: 100, marginHorizontal: 2}} />
                 <Text style={{ fontFamily: 'Lato-Regular', fontSize: 10, color: 'white'}}>{props.item.read?"Read":''}</Text></>:null}
                 </View>
             </View>

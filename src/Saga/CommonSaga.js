@@ -106,3 +106,92 @@ export function* updateUserProfile({payload} ) {
        yield put(CommonActions.updateUserProfileFailure());
    }
 }
+export function* getUserProfile({payload} ) {
+    console.log('saga updateUserProfile',payload);
+   yield put(CommonActions.getUserProfileLoading());
+   
+   try {
+      
+       let data = yield call(CommonService.getUserProfile, payload);
+       if (data&&data.code==200  || data&&data.code==201) {
+           console.log('saga try get profile',data);
+           yield put(CommonActions.getUserProfileSuccess(data));
+       } else {
+        console.log('saga try else faild ',data);
+        // HelperService.showToast({ message: data?.message });
+           yield put(CommonActions.getUserProfileFailure());
+       }
+   } catch (error) {
+       console.log('saga error userRegistration',error);
+    //    HelperService.showToast({ message: error?.message });
+       yield put(CommonActions.getUserProfileFailure());
+   }
+}
+
+
+
+export function* getUserGallary({payload} ) {
+   yield put(CommonActions.getUserGallaryLoading());
+   
+   try {
+      
+       let data = yield call(CommonService.getUserGallary, payload);
+       if (data&&data.code==200) {
+           console.log('saga try get profile',data);
+           yield put(CommonActions.getUserGallarySuccess(data));
+       } else {
+        console.log('saga try else faild ',data);
+        // HelperService.showToast({ message: data?.message });
+           yield put(CommonActions.getUserGallaryFailure());
+       }
+   } catch (error) {
+       console.log('saga error gallary',error);
+    //    HelperService.showToast({ message: error?.message });
+       yield put(CommonActions.getUserGallaryFailure());
+   }
+}
+
+
+
+export function* getUserVideo({payload} ) {
+    yield put(CommonActions.getUserVideoLoading());
+    
+    try {
+       
+        let data = yield call(CommonService.getUserVideo, payload);
+        if (data&&data.code==200) {
+            console.log('saga try get profile',data);
+            yield put(CommonActions.getUserVideoSuccess(data));
+        } else {
+         console.log('saga try else faild ',data);
+         // HelperService.showToast({ message: data?.message });
+            yield put(CommonActions.getUserVideoFailure());
+        }
+    } catch (error) {
+        console.log('saga error gallary',error);
+     //    HelperService.showToast({ message: error?.message });
+        yield put(CommonActions.getUserVideoFailure());
+    }
+ }
+ 
+
+ export function* getUserFilter({payload} ) {
+    yield put(CommonActions.getUserFilterLoading());
+    
+    try {
+       
+        let data = yield call(CommonService.getUserFilter, payload);
+        if (data&&data.code==200) {
+            console.log('saga try get profile',data);
+            yield put(CommonActions.getUserFilterSuccess(data));
+        } else {
+         console.log('saga try else faild ',data);
+         // HelperService.showToast({ message: data?.message });
+            yield put(CommonActions.getUserFilterFailure());
+        }
+    } catch (error) {
+        console.log('saga error gallary',error);
+     //    HelperService.showToast({ message: error?.message });
+        yield put(CommonActions.getUserFilterFailure());
+    }
+ }

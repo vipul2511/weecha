@@ -9,6 +9,12 @@ export const INITIAL_STATE = {
 	sentOtpSuccess:false,
 	sentOtpSuccess:'',
 	updateUserProfileSuccess:'',
-	updateUserProfileLoading:false
+	updateUserProfileLoading:false,
+	getUserProfileLoading:false,
+	getUserList:null,
+	getGallaryList:[],
+	getVideoList:[],
+	getUserFilterList:[]
+
 
 }
