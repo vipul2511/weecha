@@ -149,18 +149,27 @@ const LoginPhone = props => {
       }
     }
   };
-  useEffect(() => {
+  useEffect(async() => {
     console.log('props  home', props.userLoginList);
     if (props.userLoginList) {
-      StorageUtils.setStringValue(
-        'token',
-        props.userLoginList.tokens.access.token,
-      );
+      try {
+        await AsyncStorage.setItem('token',  props.userLoginList.tokens.access.token);
+        await AsyncStorage.setItem('id',  props.userLoginList._id);
+
+      } catch (e) {
+        // saving error
+      }
+      // StorageUtils.setStringValue(
+      //   'token',
+      //  JSON.stringify(,
+      // );
       props.navigation.navigate('MainTabNavigation', {screen: 'DiscoverTab'});
     }
 
     //
   }, [props.userLoginList]);
+
+
 
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
