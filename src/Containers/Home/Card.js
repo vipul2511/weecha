@@ -6,14 +6,16 @@ import AudioCall from '../../Assets/Icons/AudioCallNew.svg'
 import TextMessage from '../../Assets/Icons/MessageNew.svg'
 import Diamonds from '../../Assets/Icons/diamonds.svg'
 import India from '../../Assets/Icons/india.svg'
+import InAppCallReceiving from '../../Contexts/InAppCallReceiving'
 
 const Card = (props) => {
+    const receiveCall = React.useContext(InAppCallReceiving)
     return (
         <View style={{height: hp('100%') - hp('3%') - hp('4%') - wp('6%') - hp('13%'), width: wp('100%'), zIndex: 2, borderBottomLeftRadius: wp('5%'), borderBottomRightRadius: wp('5%'), overflow: 'hidden', elevation: 0.3}}>
-            <Image source={require('../../Assets/Images/photo.png')} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
+            <Image source={props.data.imageUrl} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
             <View style={{height: '22%', width: '22%', backgroundColor: 'rgba(0,0,0,0.4)', borderWidth: 2, borderColor: 'white', 
                         position: 'absolute', right: '5%', top: '2%', borderRadius: 10, overflow: 'hidden'}}>
-                <Image source={require('../../Assets/Images/photo.png')} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
+                <Image source={props.data.imageUrl} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
                 <Text style={{position: 'absolute', left: '10%', top: '2%', fontFamily: 'Roboto', fontWeight: 'bold', fontStyle: 'italic', 
                             color:'white'}}>Live</Text>
             </View>
@@ -31,11 +33,15 @@ const Card = (props) => {
                     <TouchableOpacity  onPress={() => props.navigation.navigate('AudioCall')}>
                             <AudioCall height={"64"} width={"64"} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => props.navigation.navigate('VideoCall')}>
+                    <TouchableOpacity onPress={() => {
+                        
+                        props.navigation.navigate('VideoCall')}}>
                             <VideoCall height={"80"} width={"80"} />
                     </TouchableOpacity>
                     
-                    <TouchableOpacity onPress={() => props.navigation.navigate('Chat')} >
+                    <TouchableOpacity onPress={() => {
+                        receiveCall.sendChannelMessage('1-2','Hello')
+                        props.navigation.navigate('Chat')}} >
                             <TextMessage height={"64"} width={"64"} />
                     </TouchableOpacity>
                 </View>

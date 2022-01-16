@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import {Text,View,Image,TouchableOpacity, ImageBackground,NativeModules} from 'react-native';
 import { heightPercentageToDP as hp,widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { CommonTypes } from "../../Store/Common/Actions";
 import styles from './Styles';
 import {
     GoogleSignin,
@@ -8,6 +9,7 @@ import {
     statusCodes,
   } from '@react-native-google-signin/google-signin';
   import { HelperService, onFacebookLogin } from "../../Services/Utils/HelperService";
+  import {useDispatch, useSelector} from'react-redux'
   const { RNTwitterSignIn } = NativeModules
   const Constants = {
     //Dev Parse keys
@@ -15,6 +17,7 @@ import {
     TWITTER_CONSUMER_SECRET: "bSYvdeWSYSplNkYamVFi8Hvl0100duGLHsOinlTSFA5L9BHEmD"
   }
 const Login=(props)=>{
+  const dispatch = useDispatch()
     const [userInfo, setUserInfo] = useState(null);
     const [gettingLoginStatus, setGettingLoginStatus] = useState(true);
      const [ isLoggedIn,setisLoggedIn]=useState(false);
@@ -93,6 +96,7 @@ const Login=(props)=>{
           });
           const userInfo = await GoogleSignin.signIn();
           console.log('User Info --> ', userInfo);
+          
           props.navigation.navigate('MainTabNavigation',{screen: 'DiscoverTab'})
           setUserInfo(userInfo);
         } catch (error) {

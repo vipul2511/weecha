@@ -38,7 +38,7 @@ const data = [
     age: 29,
     rate: 4000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(1).jpg'),
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const data = [
     age: 21,
     rate: 1000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(2).jpg'),
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ const data = [
     age: 22,
     rate: 5000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(3).jpg'),
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const data = [
     age: 20,
     rate: 3000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(4).jpg'),
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const data = [
     age: 23,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(5).jpg'),
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const data = [
     age: 27,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(6).jpg'),
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ const data = [
     age: 22,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(7).jpg'),
   },
   {
     id: 8,
@@ -94,7 +94,7 @@ const data = [
     age: 28,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(8).jpg'),
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ const data = [
     age: 21,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(9).jpg'),
   },
   {
     id: 10,
@@ -110,7 +110,7 @@ const data = [
     age: 23,
     rate: 8000,
     country: 'England',
-    imageUrl: '',
+    imageUrl: require('../../Assets/Images/photo(10).jpg'),
   },
 ];
 const Home = props => {

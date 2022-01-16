@@ -87,7 +87,7 @@ const ProfileView = props => {
       <StatusBar backgroundColor="transparent" translucent={true} />
       <ScrollView>
         <ImageBackground
-          source={require('../../Assets/Images/photo.png')}
+          source={require('../../Assets/Images/photo(1).jpg')}
           style={{height: hp('40%')}}>
           <View
             style={{
@@ -520,13 +520,13 @@ const ProfileView = props => {
               }}>
               <View style={{overflow: 'hidden', borderRadius: 10}}>
                 <Image
-                  source={require('../../Assets/Images/photo.png')}
+                  source={require('../../Assets/Images/photo(1).jpg')}
                   style={{width: wp('43%'), height: wp('50%')}}
                 />
               </View>
               <View style={{overflow: 'hidden', borderRadius: 10}}>
                 <Image
-                  source={require('../../Assets/Images/photo.png')}
+                  source={require('../../Assets/Images/photo(1).jpg')}
                   style={{width: wp('43%'), height: wp('50%')}}
                 />
               </View>

@@ -22,9 +22,9 @@ const Message = (props) => {
 
     console.log(props.item, "ITEM")
     return (
-        <View style={[{width: '100%', padding: 10}, props.item.type==='sent'?{alignItems: 'flex-end'}:{alignItems: 'flex-start'}]}>
+        <View style={[{width: '100%', padding: 10}, props.item.sentBy===props?.userId?{alignItems: 'flex-end'}:{alignItems: 'flex-start'}]}>
             <View style={[{maxWidth: wp('70%'), padding: wp('3%'), 
-            }, props.item.type==='sent'?{borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomLeftRadius: wp('5%'), backgroundColor: 'rgba(0, 45, 227, 1)'}:{
+            }, props.item.sentBy===props?.userId?{borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomLeftRadius: wp('5%'), backgroundColor: 'rgba(0, 45, 227, 1)'}:{
                 borderTopRightRadius: wp('5%'), borderTopLeftRadius: wp('5%'), borderBottomRightRadius: wp('5%'), backgroundColor: 'white'
             }]}>
                 {props.item.body.image.toString().length> 0 && 
@@ -43,9 +43,9 @@ const Message = (props) => {
                         />
                     </ImageBackground>
                 </TouchableOpacity>}
-                {props.item.body.text.length> 0 && <Text style={[{ fontFamily: 'Mulish-Regular', fontSize: 14}, props.item.type==='sent'?{color:'white'}:{color:'rgba(15, 24, 40, 1)'}]}>{props.item.body.text}</Text>}
-                <View style={[{flexDirection: 'row', alignItems: 'center', marginTop: hp('0.8%')}, props.item.type==='sent'?{alignSelf: 'flex-end',}:{alignSelf: 'flex-start',}]}>
-                <Text style={[{ fontFamily: 'Lato-Regular', fontSize: 10}, props.item.type==='sent'?{color:'white'}:{color:'rgba(173, 181, 189, 1)'}]}>{moment(props.item.createdAt).format('hh:mm')}</Text>
+                {props.item.body.text.length> 0 && <Text style={[{ fontFamily: 'Mulish-Regular', fontSize: 14}, props.item.sentBy===props?.userId?{color:'white'}:{color:'rgba(15, 24, 40, 1)'}]}>{props.item.body.text}</Text>}
+                <View style={[{flexDirection: 'row', alignItems: 'center', marginTop: hp('0.8%')}, props.item.sentBy===props?.userId?{alignSelf: 'flex-end',}:{alignSelf: 'flex-start',}]}>
+                <Text style={[{ fontFamily: 'Lato-Regular', fontSize: 10}, props.item.sentBy===props?.userId?{color:'white'}:{color:'rgba(173, 181, 189, 1)'}]}>{moment(props.item.createdAt).format('HH:MM')}</Text>
                 {props.item?.read?<><View style={{height: 2, width: 2, backgroundColor: 'white', borderRadius: 100, marginHorizontal: 2}} />
                 <Text style={{ fontFamily: 'Lato-Regular', fontSize: 10, color: 'white'}}>{props.item.read?"Read":''}</Text></>:null}
                 </View>

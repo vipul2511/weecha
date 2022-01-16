@@ -16,11 +16,15 @@ import Home from '../Containers/Home';
 import TabNav from './TabNav';
 import VideoCall from '../Containers/VideoCall';
 import AudioCall from '../Containers/AudioCall';
+import InAppCallReceivingContext from '../Contexts/InAppCallReceiving'
+import RtmAdapter from '../Component/InAppCallReceivingManager';
+const rtmAdaptor = new RtmAdapter()
 const Stack = createStackNavigator();
 
 function AppStack() {
   return (
     <NavigationContainer>
+      <InAppCallReceivingContext.Provider value={rtmAdaptor}>
       <Stack.Navigator initialRouteName="SplashScreen">
         <Stack.Screen
           name="SplashScreen"
@@ -105,6 +109,7 @@ function AppStack() {
           options={{headerShown: false}}
         />
       </Stack.Navigator>
+      </InAppCallReceivingContext.Provider>
     </NavigationContainer>
   );
 }

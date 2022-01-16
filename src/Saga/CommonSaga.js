@@ -6,7 +6,7 @@ import CommonActions from '../Store/Common/Actions';
 import {HelperService} from "../Services/Utils/HelperService"
 
 export function* getLanguage( payload ) {
-     console.log('saga',payload);
+     console.log('sagaaaa',payload);
 	yield put(CommonActions.getLanguageLoading());
 	
 	try {

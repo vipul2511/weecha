@@ -20,6 +20,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Modal from "react-native-modal";
 import All from '../Containers/Discover/All'
 import MyProfile from '../Containers/MyProfile';
+import InAppCallReceiving from '../Contexts/InAppCallReceiving'
 
 const Tab = createBottomTabNavigator();
 const DiscoverTab = createMaterialTopTabNavigator();
@@ -199,6 +200,33 @@ function DiscoverTabBar(props) {
     );
 }
 const TabNav = () => {
+    const receiveCall = React.useContext(InAppCallReceiving)
+    React.useEffect(() => {
+        receiveCall.login('2').then(l => {
+            receiveCall.on('connectionStateChanged', (la) => {
+                console.log(la), "CONNECTE"
+            })
+            
+            receiveCall.join('1-2').then(() => {
+                console.log("JOINED")
+                receiveCall.on('channelMessageReceived', (m) => {
+                 console.log(m)
+             })
+             })
+
+             receiveCall.join('3-2').then(() => {
+                console.log("JOINED")
+                receiveCall.on('channelMessageReceived', (m) => {
+                 console.log(m, "RECEIVED")
+             })
+             })
+            
+            
+                
+        }).catch(e => console.log("Login Failed", e))
+    }, [])
+    
+    
     return (
         <Tab.Navigator initialRouteName='Home' tabBar={props => <BottomTabBar {...props} />}>
             <Tab.Screen name={"Discover"} component={DiscoverTabNav} />
@@ -222,18 +250,18 @@ return (
         </View>
         <FlatList 
             data={[
-                {id: 1, sender: {id: 1, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 2, sender: {id: 2, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 3, sender: {id: 3, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 4, sender: {id: 4, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 5, sender: {id: 5, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 6, sender: {id: 6, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 7, sender: {id: 1, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 8, sender: {id: 2, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 9, sender: {id: 3, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 10, sender: {id: 4, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 11, sender: {id: 5, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
-                {id: 12, sender: {id: 6, image: require('../Assets/Images/photo.png')}, content: {image:  require('../Assets/Images/photo.png'), watching: 747}},
+                {id: 1, sender: {id: 1, image: require('../Assets/Images/photo(1).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 2, sender: {id: 2, image: require('../Assets/Images/photo(2).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 3, sender: {id: 3, image: require('../Assets/Images/photo(3).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 4, sender: {id: 4, image: require('../Assets/Images/photo(4).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 5, sender: {id: 5, image: require('../Assets/Images/photo(5).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 6, sender: {id: 6, image: require('../Assets/Images/photo(6).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 7, sender: {id: 1, image: require('../Assets/Images/photo(7).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 8, sender: {id: 2, image: require('../Assets/Images/photo(8).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 9, sender: {id: 3, image: require('../Assets/Images/photo(9).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 10, sender: {id: 4, image: require('../Assets/Images/photo(10).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 11, sender: {id: 5, image: require('../Assets/Images/photo(1).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
+                {id: 12, sender: {id: 6, image: require('../Assets/Images/photo(2).jpg')}, content: {image:  require('../Assets/Images/photo(1).jpg'), watching: 747}},
                 
             ]}
             style={{flex: 1,  marginTop: 10}}
@@ -306,11 +334,11 @@ export default DiscoverDrawer
 //                     let icon;
 
 //                     switch (route.name) {
-//                         case 'Home': icon = focused ? require('../Assets/Images/HomeIconActive.png') : require('../Assets/Images/HomeIcon.png'); break;
-//                         case 'Data points': icon = focused ? require('../Assets/Images/DataPointsIconActive.png') : require('../Assets/Images/DataPointsIcon.png'); break;
-//                         case 'Dapps': icon = focused ? require('../Assets/Images/DappsIconActive.png') : require('../Assets/Images/DappsIcon.png'); break;
-//                         case 'NFT (soon)': icon = focused ? require('../Assets/Images/NFTIconActive.png') : require('../Assets/Images/NFTIcon.png'); break;
-//                         case 'Settings': icon = focused ? require('../Assets/Images/SettingsIconActive.png') : require('../Assets/Images/SettingIcon.png'); break;
+//                         case 'Home': icon = focused ? require('../Assets/Images/HomeIconActive(1).jpg') : require('../Assets/Images/HomeIcon(1).jpg'); break;
+//                         case 'Data points': icon = focused ? require('../Assets/Images/DataPointsIconActive(1).jpg') : require('../Assets/Images/DataPointsIcon(1).jpg'); break;
+//                         case 'Dapps': icon = focused ? require('../Assets/Images/DappsIconActive(1).jpg') : require('../Assets/Images/DappsIcon(1).jpg'); break;
+//                         case 'NFT (soon)': icon = focused ? require('../Assets/Images/NFTIconActive(1).jpg') : require('../Assets/Images/NFTIcon(1).jpg'); break;
+//                         case 'Settings': icon = focused ? require('../Assets/Images/SettingsIconActive(1).jpg') : require('../Assets/Images/SettingIcon(1).jpg'); break;
 //                     }
 
 //                     return <Image

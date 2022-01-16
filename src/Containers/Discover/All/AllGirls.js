@@ -27,18 +27,19 @@ const AllGirls = props => {
           return (
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() =>
-                props.navigation.navigate('ViewProfile', {details: item})
-              }
+              // onPress={() =>
+              //   // props.navigation.navigate('ViewProfile', {details: item})
+              // }
               style={{
                 width: '50%',
                 alignItems: 'center',
                 marginBottom: wp('1%'),
               }}>
               <ImageBackground
-                source={{
-                  uri: 'http://18.134.80.247/v1/uploads/' + item.profile,
-                }}
+                // source={{
+                //   uri: 'http://18.134.80.247/v1/uploads/' + item.profile,
+                // }}
+                source={item.image}
                 style={{
                   height: wp('49%'),
                   overflow: 'hidden',

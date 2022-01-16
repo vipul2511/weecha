@@ -48,7 +48,7 @@ function getLanguage(params) {
       return null;
     })
     .catch(error => {
-      console.log('err', error);
+      console.log('errsss', error);
       return null;
     });
 }
@@ -71,7 +71,8 @@ function userRegistration(params) {
       return error.response.data;
     });
 }
-function userLogin(params) {
+ function userLogin(params) {
+console.log("USER LOGIN?>>>>>>>")
   let url = 'users/login';
   let body = {
     phone: params.phone,
