@@ -5,6 +5,8 @@ import AllBoys from './AllBoys';
 import AllGirls from './AllGirls';
 import {connect} from 'react-redux';
 import CommonActions from '../../../Store/Common/Actions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 let filterdata = null;
 
 const data = [
@@ -101,13 +103,18 @@ const index = props => {
     //  console.log('props',JSON.stringify(props.getLanguageList));
   }, []);
 
-  useEffect(() => {
+  useEffect(async() => {
+
+
     filterdata = props.getUserFilterList?.user?.data;
     console.log('Filter Dataa==>', JSON.stringify(filterdata));
+    setGender(await AsyncStorage.getItem("gender"))
     // setLanguageData(props.getLanguageList)
   }, [props.getUserFilterList]);
 
-  const [gender, setGender] = React.useState('male');
+  const [gender, setGender] = React.useState('');
+
+
   return (
     <View>
       {gender === 'male' ? (

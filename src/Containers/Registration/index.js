@@ -155,6 +155,10 @@ const LoginPhone = props => {
       try {
         await AsyncStorage.setItem('token',  props.userLoginList.tokens.access.token);
         await AsyncStorage.setItem('id',  props.userLoginList._id);
+        await AsyncStorage.setItem('gender',  props.userLoginList.gender);
+
+
+        
 
       } catch (e) {
         // saving error

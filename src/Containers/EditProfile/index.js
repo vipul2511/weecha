@@ -158,7 +158,7 @@ const EditProfile = props => {
     else {
 
 
-      var body = {
+      var body= {
         name: name,
         country: country,
         homeTown: country,
@@ -168,7 +168,6 @@ const EditProfile = props => {
           {id: 'askljdd87sd78d67a8d6as7d8'},
           {id: 'asjkdhasd76sd5asd5assda'},
         ],
-        file: selectedPhoto1,
         points: props.getUserList?.user?.points,
         bio:about,
        // mutlifile:[selectedPhoto2,selectedPhoto3,selectedPhoto4],

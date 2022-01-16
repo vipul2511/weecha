@@ -10,13 +10,15 @@ import India from '../../Assets/Icons/india.svg'
 
 const Card = (props) => {
 
-    console.log("Card Data===>", props);
+    console.log("Card Data===>", props?.data);
 
 
        
     return (
         <View style={{height: hp('100%') - hp('3%') - hp('4%') - wp('6%') - hp('13%'), width: wp('100%'), zIndex: 2, borderBottomLeftRadius: wp('5%'), borderBottomRightRadius: wp('5%'), overflow: 'hidden', elevation: 0.3}}>
-            {/* <Image source={require('../../Assets/Images/photo.png')} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
+            <Image  source={{
+                  uri: 'http://18.134.80.247/v1/uploads/' + props.data?.profile,
+                }} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
             <View style={{height: '22%', width: '22%', backgroundColor: 'rgba(0,0,0,0.4)', borderWidth: 2, borderColor: 'white', 
                         position: 'absolute', right: '5%', top: '2%', borderRadius: 10, overflow: 'hidden'}}>
                 <Image source={require('../../Assets/Images/photo.png')} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
@@ -31,7 +33,7 @@ const Card = (props) => {
                                                                      alignSelf: 'baseline', marginLeft: 5}}>{props.data?.rate}/min</Text></View>
                 <View style={{flexDirection: 'row', alignSelf: 'baseline', marginLeft: 20, marginTop: 5, height: 25, alignItems: 'center' }}>
                     <India width={"24"} height={"24"} /><Text style={{fontFamily: 'Gilroy-Bold', fontSize: 16, color: 'white', 
-                                                            alignSelf: 'baseline', marginLeft: 5}}>{props.data.country}</Text></View>
+                                                            alignSelf: 'baseline', marginLeft: 5}}>{props.data?.homeTown}</Text></View>
                 <View style={{marginVertical: 5, height: 70, flexDirection: 'row', alignItems: 'center', width: '70%', alignSelf: 'center', 
                     justifyContent: 'space-around' }}>
                     <TouchableOpacity  onPress={() => props.navigation.navigate('AudioCall')}>
@@ -45,7 +47,7 @@ const Card = (props) => {
                             <TextMessage height={"64"} width={"64"} />
                     </TouchableOpacity>
                 </View>
-            </View> */}
+            </View>
         </View>
     )
 }

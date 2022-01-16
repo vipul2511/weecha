@@ -236,12 +236,13 @@ const Home = props => {
     //  console.log('props',JSON.stringify(props.getLanguageList));
   }, []);
 
-  useEffect(() => {
+  useEffect(async() => {
+
+
     filterdata = props.getUserFilterList?.user?.data;
     console.log('Filter Dataa==>', JSON.stringify(filterdata));
     // setLanguageData(props.getLanguageList)
   }, [props.getUserFilterList]);
-
 
 
 
@@ -337,7 +338,7 @@ const Home = props => {
             onSwipedBottom={() => console.log('Swiped')}
             onSwipedAll={() => setbackgroundText("You're done for today!")}
             // onTapCard={this.swipeLeft}
-            cards={data}
+            cards={props.getUserFilterList?.user?.data!=null?props.getUserFilterList?.user?.data:[]}
             cardIndex={0}
             cardVerticalMargin={0}
             // infinite={true}
@@ -348,7 +349,7 @@ const Home = props => {
             cardHorizontalMargin={0}
             containerStyle={{height: '100%'}}
 
-            
+
             backgroundColor="#fff"
             // overlayLabels={{
 

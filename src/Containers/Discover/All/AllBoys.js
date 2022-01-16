@@ -81,7 +81,7 @@ const AllBoys = props => {
                         fontFamily: 'Gilroy-SemiBold',
                         marginBottom: hp('0.5%'),
                       }}>
-                      Andrew Mathew
+                      { item?.name}
                     </Text>
                   </TouchableOpacity>
                   <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -107,7 +107,7 @@ const AllBoys = props => {
                           fontWeight: '600',
                           color: 'rgba(255, 255, 255, 1)',
                         }}>
-                        5 Lakh
+                        {item?.points}
                       </Text>
                     </View>
                   </View>
