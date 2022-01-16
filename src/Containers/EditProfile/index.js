@@ -39,6 +39,7 @@ const EditProfile = props => {
   const [date, setDate] = React.useState(new Date())
   const [open, setOpen] = React.useState(false)
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  var avtar=null;
 
 
   var partPhoto;
@@ -79,6 +80,7 @@ const EditProfile = props => {
 
       if (item == '1') {
         setSelectedPhoto1('data:image/png;base64,' + image1.data);
+        avtar ='Data'
       } else if (item == '2') {
         setSelectedPhoto2('data:image/png;base64,' + image1.data);
       } else if (item == '3') {
@@ -115,7 +117,10 @@ const EditProfile = props => {
       };
 
       if (item == '1') {
+
         setSelectedPhoto1('data:image/png;base64,' + image1.data);
+
+
       } else if (item == '2') {
         setSelectedPhoto2('data:image/png;base64,' + image1.data);
       } else if (item == '3') {
@@ -131,9 +136,13 @@ const EditProfile = props => {
     });
   };
   const upateProfile = async () => {
-    if (name == '') {
+    if (avtar == null) {
+      HelperService.showToast({message: 'Enter avtar'});
+    } 
+  else if (name == '') {
       HelperService.showToast({message: 'Enter name'});
-    } else if (gender == '') {
+    } 
+    else if (gender == '') {
       HelperService.showToast({message: 'Enter Gender'});
     } else if (country == '') {
       HelperService.showToast({message: 'Enter Country'});
@@ -142,40 +151,40 @@ const EditProfile = props => {
     } else if (about == '') {
       HelperService.showToast({message: 'Enter About'});
     }
-    //   else if(selectedPhoto2==''){
-    //     HelperService.showToast({message: 'Select Gallary one'});
+    else if(selectedPhoto2==''){
+      HelperService.showToast({message: 'Select Gallary one'});
+    }else if(selectedPhoto3==''){ 
+      HelperService.showToast({message: 'Select Gallary two'});
+    }else if(selectedPhoto4==''){
+       HelperService.showToast({message: 'Select Gallary three'}); 
+    } 
+    else {
+      console.log("avtar",avtar);
+      console.log("avtar",selectedPhoto1);
 
-    //   }
-    //   else if(selectedPhoto3==''){ HelperService.showToast({message: 'Select Gallary two'});
 
-    //   }
-    //   else if(selectedPhoto4==''){
-    //     HelperService.showToast({message: 'Select Gallary three'});
+        console.log("Callled",selectedPhoto1);
+        var body= {
+
+          name: name,
+          country: country,
+          homeTown: country,
+          DateOfBirth: birthDate,
+          nick_name: props.getUserList?.user?.nick_name,
+          interests:  [
+            {id: 'askljdd87sd78d67a8d6as7d8'},
+            {id: 'asjkdhasd76sd5asd5assda'},
+          ],
+          points: props.getUserList?.user?.points,
+          bio:about,
+          file:selectedPhoto1,
+         mutlifile:[selectedPhoto2,selectedPhoto3,selectedPhoto4],
+          
+        }
+      
+
 
       
-    // } 
-    
-    else {
-
-
-      var body= {
-        name: name,
-        country: country,
-        homeTown: country,
-        DateOfBirth: birthDate,
-        nick_name: props.getUserList?.user?.nick_name,
-        interests:  [
-          {id: 'askljdd87sd78d67a8d6as7d8'},
-          {id: 'asjkdhasd76sd5asd5assda'},
-        ],
-        points: props.getUserList?.user?.points,
-        bio:about,
-       // mutlifile:[selectedPhoto2,selectedPhoto3,selectedPhoto4],
-        file:selectedPhoto1
-        
-       
-        
-      };
       props.updateUserProfile(body);
     }
   };
@@ -183,11 +192,11 @@ const EditProfile = props => {
   useEffect(() => {
     console.log('props  home', props.updateUserProfileSuccess);
     if (props.updateUserProfileSuccess) {
-      props.clearUpdateProfile();
       props.navigation.navigate('MainTabNavigation', {
         screen: 'DiscoverTab',
       });
     }
+    props.clearUpdateProfile();
 
     //
   }, [props.updateUserProfileSuccess]);
@@ -198,6 +207,8 @@ const EditProfile = props => {
       setGender(props.getUserList?.user?.gender);
       setCountry(props.getUserList?.user?.country);
       setBirthDate(moment(props.getUserList?.user?.DateOfBirth).format('MM/DD/YYYY'));
+      setSelectedPhoto1('http://18.134.80.247/v1/uploads/' + props.getUserList?.user?.profile);
+
    
       setAbout(props.getUserList?.user?.bio);
       if(props.getUserList?.user?.gender=='male'){

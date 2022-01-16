@@ -26,6 +26,8 @@ import DiamondGoldIcon from '../../Assets/Icons/DiamondGold.svg';
 import Toggle from 'react-native-toggle-element';
 import {connect} from 'react-redux';
 import CommonActions from '../../Store/Common/Actions';
+import { useIsFocused } from '@react-navigation/native';
+
 let userData = null;
 
 import {prop} from 'ramda';
@@ -33,18 +35,21 @@ import {prop} from 'ramda';
 const MyProfile = props => {
   const [toggle, setToggle] = React.useState(true);
   const [profileData, setProfileData] = React.useState(null);
+  const isFocused=useIsFocused()
 
   const getProfile = async () => {
     let a = await props.getUserProfile();
     console.log(a, 'Profile Response');
   };
   useEffect(() => {
-    console.log('Calllllll===>');
+    if(isFocused){
     getProfile();
+    }
     //  console.log('props',JSON.stringify(props.getLanguageList));
-  }, []);
+  }, [isFocused]);
 
   useEffect(() => {
+    
     userData = props.getUserList?.user;
     console.log('props user profile====>', JSON.stringify(props.getUserList));
     setProfileData(JSON.stringify(props.getUserList));
