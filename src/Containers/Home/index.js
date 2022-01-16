@@ -24,6 +24,8 @@ import Swiper from 'react-native-deck-swiper';
 import {StorageUtils} from '../../Helper/storage';
 import {call} from 'redux-saga/effects';
 import {returntoken} from '../../Services/Utils/HelperService';
+import {connect} from 'react-redux';
+import CommonActions from '../../Store/Common/Actions';
 // import { PanGestureHandler } from 'react-native-gesture-handler';
 // import * as Animatable from 'react-native-animatable';
 // import Animated, {runOnJS,
@@ -31,6 +33,7 @@ import {returntoken} from '../../Services/Utils/HelperService';
 // import { SafeAreaView } from 'react-native-safe-area-context';
 
 const {width, height} = Dimensions.get('window');
+var filterdata=[]
 const data = [
   {
     id: 1,
@@ -223,6 +226,25 @@ const Home = props => {
     }
   };
 
+  const getFilter = async () => {
+    let a = await props.getUserFilter();
+    console.log(a, 'Profile Response');
+  };
+  useEffect(() => {
+    console.log('Calllllll===>');
+    getFilter();
+    //  console.log('props',JSON.stringify(props.getLanguageList));
+  }, []);
+
+  useEffect(() => {
+    filterdata = props.getUserFilterList?.user?.data;
+    console.log('Filter Dataa==>', JSON.stringify(filterdata));
+    // setLanguageData(props.getLanguageList)
+  }, [props.getUserFilterList]);
+
+
+
+
   const [backgroundText, setbackgroundText] = useState('');
   return (
     <>
@@ -325,6 +347,8 @@ const Home = props => {
             stackSeparation={0}
             cardHorizontalMargin={0}
             containerStyle={{height: '100%'}}
+
+            
             backgroundColor="#fff"
             // overlayLabels={{
 
@@ -373,4 +397,16 @@ const Home = props => {
     </>
   );
 };
-export default Home;
+//export default Home;
+
+const mapStateToProps = state => ({
+  getUserFilterLoading: state.common.getUserFilterLoading,
+  getUserFilterList: state.common.getUserFilterList,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getUserFilter: () => {
+    dispatch(CommonActions.getUserFilter());
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

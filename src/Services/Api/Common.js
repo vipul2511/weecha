@@ -2,10 +2,22 @@ import axios from 'axios';
 const URL = 'http://18.134.80.247/v1/';
 import {is, curryN, gte} from 'ramda';
 import {StorageUtils} from '../../Helper/storage';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import { returntoken } from '../Utils/HelperService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// var new_token = await AsyncStorage.getItem('@token');
-// console.log('Token,', new_token);
+
+
+const Token = async () => {
+  try {
+    await AsyncStorage.getItem("token").then(
+      token => token
+    );
+  } catch (error) {
+    return null;
+  }
+}
+
+
 
 const isWithin = curryN(3, (min, max, value) => {
   const isNumber = is(Number);
@@ -20,6 +32,7 @@ const isWithin = curryN(3, (min, max, value) => {
 const in200s = isWithin(200, 299);
 
 const userApiClient = axios.create({
+  
   /**
    * Import the config from the App/Config/index.js file
    */
@@ -27,9 +40,9 @@ const userApiClient = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWJjY2RhMGVkZmMxYTcxMmYwZDBhNjMiLCJpYXQiOjE2NDE5NjgzMzUsImV4cCI6MzQ0MTk2ODMzNX0.F20gtMw-8p55BBC7Nal_Gg6UcTf4yvqAkV522Q2ZlYw',
-  },
+    Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWRkNzUyZjRlYzViNTFjNzEwZTZhOWUiLCJpYXQiOjE2NDIzMTE4NTMsImV4cCI6MzQ0MjMxMTg1M30.dMuvPp9K2moD-7RxPw3Gs4yGVSPgSJUT6ly17KA3NqA',
+  }
+ 
 });
 
 function getLanguage(params) {
@@ -128,7 +141,7 @@ function updateUserProfile(params) {
     points: params.points,
   };
   return userApiClient
-    .put(url, body)
+    .put(url, params)
     .then(response => {
       console.log('sucess of profile', response);
       if (in200s(response.status)) {
@@ -162,12 +175,12 @@ function getUserProfile() {
     });
 }
 
-function getUserGallary() {
+function getUserGallary(params) {
   console.log('get profile service====>', 1);
-  let url = 'users/user_gallery/61bccda0edfc1a712f0d0a63';
+  let url = 'users/user_gallery/'+params;
 
   return userApiClient
-    .get(url)
+    .get(url,params)
     .then(response => {
       console.log('get profile service====>', 2);
 
@@ -185,12 +198,12 @@ function getUserGallary() {
     });
 }
 
-function getUserVideo() {
+function getUserVideo(params) {
   console.log('get profile service====>', 1);
-  let url = 'users/user_video/61bccda0edfc1a712f0d0a63';
+  let url = 'users/user_video/'+params;
 
   return userApiClient
-    .get(url)
+    .get(url,params)
     .then(response => {
       console.log('get profile service====>', 2);
 

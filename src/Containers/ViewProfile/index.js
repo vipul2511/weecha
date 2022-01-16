@@ -27,6 +27,7 @@ import FemaleIcon from '../../Assets/Icons/female.svg';
 import {connect} from 'react-redux';
 import CommonActions from '../../Store/Common/Actions';
 import GridImageView from 'react-native-grid-image-viewer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 let userData = null;
 let videoList = [];
@@ -36,12 +37,12 @@ const ProfileView = props => {
   const [view, setView] = React.useState(0);
 
   const getUserGallary = async () => {
-    let a = await props.getUserGallary();
-    console.log(a, 'Profile Response');
+    let a = await props.getUserGallary(await AsyncStorage.getItem("id"));
+    console.log(a, 'ABCDDDD Response======>');
   };
 
   const getUserVideo = async () => {
-    let a = await props.getUserVideo();
+    let a = await props.getUserVideo(await AsyncStorage.getItem("id"));
   };
   useEffect(() => {
     console.log('Calllllll===>');

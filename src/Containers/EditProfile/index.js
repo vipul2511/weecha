@@ -18,6 +18,10 @@ import {connect} from 'react-redux';
 import SelectImageDialog from '../../Component/SelectImageDialog';
 import {HelperService} from '../../Services/Utils/HelperService';
 import CommonActions from '../../Store/Common/Actions';
+import { RadioButton, RadioGroup } from "react-native-flexi-radio-button";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import moment from 'moment' // 292.3K (gzipped: 71.6K)
+
 
 const EditProfile = props => {
   const [name, setName] = React.useState('');
@@ -31,8 +35,27 @@ const EditProfile = props => {
   const [selectedPhoto4, setSelectedPhoto4] = React.useState('');
   const [selectImagePos, setSelectedImagePos] = React.useState('');
   const refImageDialog = React.useRef();
+  const [radioItem, setRadioSelectedItem] = React.useState();
+  const [date, setDate] = React.useState(new Date())
+  const [open, setOpen] = React.useState(false)
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
 
   var partPhoto;
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
+
 
   const takePhotoFromCamera = item => {
     ImagePicker.openCamera({
@@ -118,20 +141,43 @@ const EditProfile = props => {
       HelperService.showToast({message: 'Enter BirthDate'});
     } else if (about == '') {
       HelperService.showToast({message: 'Enter About'});
-    } else {
-      props.updateUserProfile({
+    }
+    //   else if(selectedPhoto2==''){
+    //     HelperService.showToast({message: 'Select Gallary one'});
+
+    //   }
+    //   else if(selectedPhoto3==''){ HelperService.showToast({message: 'Select Gallary two'});
+
+    //   }
+    //   else if(selectedPhoto4==''){
+    //     HelperService.showToast({message: 'Select Gallary three'});
+
+      
+    // } 
+    
+    else {
+
+
+      var body = {
         name: name,
-        gender: gender,
+        country: country,
         homeTown: country,
-        dateOfBirth: birthDate,
+        DateOfBirth: birthDate,
         nick_name: props.getUserList?.user?.nick_name,
-        interests: [
+        interests:  [
           {id: 'askljdd87sd78d67a8d6as7d8'},
           {id: 'asjkdhasd76sd5asd5assda'},
         ],
         file: selectedPhoto1,
         points: props.getUserList?.user?.points,
-      });
+        bio:about,
+       // mutlifile:[selectedPhoto2,selectedPhoto3,selectedPhoto4],
+        file:selectedPhoto1
+        
+       
+        
+      };
+      props.updateUserProfile(body);
     }
   };
 
@@ -152,7 +198,17 @@ const EditProfile = props => {
       setName(props.getUserList?.user?.name);
       setGender(props.getUserList?.user?.gender);
       setCountry(props.getUserList?.user?.country);
-      setBirthDate(props.getUserList?.user?.dateOfBirth);
+      setBirthDate(moment(props.getUserList?.user?.DateOfBirth).format('MM/DD/YYYY'));
+   
+      setAbout(props.getUserList?.user?.bio);
+      if(props.getUserList?.user?.gender=='male'){
+        setRadioSelectedItem(0)
+      }else if(props.getUserList?.user?.gender=='female'){
+        setRadioSelectedItem(1)
+
+      }
+      
+
       // setSelectedPhoto1(
       //   'http://18.134.80.247/v1/uploads/' + props.getUserList?.user?.profile,
       // );
@@ -162,6 +218,12 @@ const EditProfile = props => {
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
+         <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
       <SelectImageDialog
         ref={refImageDialog}
         onPressTakePhoto={() => {
@@ -323,7 +385,49 @@ const EditProfile = props => {
               }}></TextInput>
           </View>
         </View>
-        <View
+        <View>
+                <RadioGroup
+                  size={18}
+                  thickness={2}
+                  color={'green'}
+                  custom={true}
+                  style={{
+                    flexDirection: "row",
+                    paddingHorizontal:10
+                  }}
+                  selectedIndex={radioItem}
+                  onSelect={(index, value) => setRadioSelectedItem(index)}
+                >
+                  <RadioButton color={'blue'} value={radioItem}>
+                    <Text
+                      style={{
+                        color: 'red',
+                        fontWeight: "700",
+                        marginTop: 0,
+                      }}
+                    >
+                      {"Male"}
+                    </Text>
+
+                  
+                  </RadioButton>
+
+                  <RadioButton color={'blue'} value={radioItem}>
+                    <Text
+                      style={{
+                        color: 'red',
+                        fontWeight: "700",
+                        marginTop: 0,
+                      }}
+                    >
+                      {"Female"}
+                    </Text>
+                   
+                  </RadioButton>
+                </RadioGroup>
+              </View>
+
+        {/* <View
           style={{
             marginTop: 10,
             backgroundColor: 'rgba(242, 242, 242, 1)',
@@ -355,7 +459,7 @@ const EditProfile = props => {
                 color: 'rgba(0, 0, 0, 1)',
               }}></TextInput>
           </View>
-        </View>
+        </View> */}
         <View
           style={{
             marginTop: 10,
@@ -401,7 +505,7 @@ const EditProfile = props => {
             paddingHorizontal: 10,
             paddingVertical: 15,
           }}>
-          <View style={{flex: 1, marginLeft: 10}}>
+          <Pressable onPress={()=>{showDatePicker()}} style={{flex: 1, marginLeft: 10}}>
             <Text
               style={{
                 fontFamily: 'Gilroy-Medium',
@@ -411,6 +515,7 @@ const EditProfile = props => {
               DOB
             </Text>
             <TextInput
+            editable={true}
               value={birthDate}
               onChangeText={text => {
                 setBirthDate(text);
@@ -420,7 +525,7 @@ const EditProfile = props => {
                 fontSize: 16,
                 color: 'rgba(0, 0, 0, 1)',
               }}></TextInput>
-          </View>
+          </Pressable>
         </View>
         <View
           style={{
